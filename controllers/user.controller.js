@@ -436,10 +436,10 @@ exports.searchuser = async (req, res) => {
   try {
     console.log("This user is " + req.userId);
     console.log(
-      "Search for user: " + req.body.username + " ID: " + req.body.userId
+      "Search for user: " + req.body.username
     );
     const searchresult = await User.findOne(
-      { $or: [{ _id: req.body.userId }, { username: req.body.username }] },
+      { username: req.body.username },
       { password: 0 }
     );
     if (!searchresult == true) {
